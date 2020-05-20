@@ -15,8 +15,10 @@ namespace RatingApi.RedisDatabase
         {
             if (_redisMultiplexer == null)
             {
-                var redisAddr = Environment.GetEnvironmentVariable("REDIS_ADDR") ?? "127.0.0.1:6379";
+                var redisAddr = Environment.GetEnvironmentVariable("REDIS_ADDR") ?? "127.0.0.1";
+                Console.WriteLine(redisAddr);
                 _redisMultiplexer = ConnectionMultiplexer.Connect(redisAddr);
+                Console.WriteLine("Connection ok");
             }
             return _redisMultiplexer.GetDatabase();
         }

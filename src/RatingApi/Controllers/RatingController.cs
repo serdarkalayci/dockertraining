@@ -20,7 +20,7 @@ namespace RatingApi.Controllers
         public ActionResult<Rating> Get(string id)
         {
             var db = _redisDatabaseProvider.GetDatabase();
-            var value = db.StringGet(id);
+            var value = db.StringGet("1");
             return new Models.Rating {Key= id, Value= Double.Parse(value)};
         }
     }
