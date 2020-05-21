@@ -1,5 +1,5 @@
 docker pull redis
-docker run --name redisws --network host -d redis redis-server
+docker run --name redisws -d redis redis-server
 docker exec -it redisws bash
 ls
 redis-cli
@@ -17,6 +17,6 @@ docker container stop redisws
 docker container rm redisws
 
 docker volume create redisdata
-docker run --name redisws -v redisdata:/data --network host -d redis redis-server
+docker run --name redisws -v redisdata:/data -d redis redis-server
 
 docker run -p 6379:6379 --name redisws -d redis
