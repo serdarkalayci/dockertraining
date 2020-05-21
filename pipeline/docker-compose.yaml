@@ -10,6 +10,7 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
   rating-api:
+    # build: ../src/RatingApi
     image: serdarkalayci/rating-api
     container_name: rating-api
     ports:
